@@ -65,7 +65,11 @@
                                 <li>
                                     <a href="#">
                                         <span class="sidebar-mini">L</span>
-                                        <span class="sidebar-normal">Logout</span>
+                                        <span class="sidebar-normal" onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">Logout</span>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                            @csrf
+                                        </form>
                                     </a>
                                 </li>
                             </ul>
@@ -77,8 +81,12 @@
                         <div class="collapse in" id="dashboardOverview">
                             <ul class="nav">
                                 <li>
+                                    <a href="{{ route('admin.index') }}">
+                                        <span class="sidebar-normal">Dashboard</span>
+                                    </a>
+                                </li>
+                                <li>
                                     <a href="{{ route('stats.index') }}">
-                                        <span class="sidebar-mini">S</span>
                                         <span class="sidebar-normal">Stats</span>
                                     </a>
                                 </li>

@@ -124,32 +124,39 @@
                         <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
                             <thead>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Position</th>
-                                    <th>Office</th>
-                                    <th>Age</th>
-                                    <th>Start date</th>
+                                    <th>N°</th>
+                                    <th>Nom(s)</th>
+                                    <th>Prénom(s)</th>
+                                    <th>Phone</th>
+                                    <th>Filiere</th>
+                                    <th>Email</th>
+                                    <th>Date d'inscription</th>
                                     <th class="disabled-sorting">Actions</th>
                                 </tr>
                             </thead>
                             <tfoot>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Position</th>
-                                    <th>Office</th>
-                                    <th>Age</th>
-                                    <th>Start date</th>
-                                    <th>Actions</th>
+                                    <th>N°</th>
+                                    <th>Nom(s)</th>
+                                    <th>Prénom(s)</th>
+                                    <th>Phone</th>
+                                    <th>Filiere</th>
+                                    <th>Email</th>
+                                    <th>Date d'inscription</th>
+                                    <th class="disabled-sorting">Actions</th>
                                 </tr>
                             </tfoot>
                             <tbody>
+                                <?php $cpt=1; ?>
                                 @foreach($last_interesses as $last_interesse)
                                 <tr>
-                                    <td>Tiger Nixon</td>
-                                    <td>System Architect</td>
-                                    <td>Edinburgh</td>
-                                    <td>61</td>
-                                    <td>2011/04/25</td>
+                                    <td>{{$cpt}}</td>
+                                    <td>{{ $last_interesse->getLastName()}}</td>
+                                    <td>{{ $last_interesse->getFirstName()}}</td>
+                                    <td>{{ $last_interesse->getPhone()}}</td>
+                                    <td>{{ $last_interesse->getFiliere()}}</td>
+                                    <td>{{ $last_interesse->getEmail()}}</td>
+                                    <td>{{ $last_interesse->getDateAdhesion()}}</td>
                                     <td>
                                         <a href="#" class="btn btn-simple btn-info btn-icon like"><i class="ti-heart"></i></a>
                                         <a href="#" class="btn btn-simple btn-warning btn-icon edit"><i class="ti-pencil-alt"></i></a>
@@ -157,6 +164,7 @@
                                     </td>
                                 </tr>
                                 @endforeach
+                                <?php $cpt++; ?>
                             </tbody>
                         </table>
                     </div>
